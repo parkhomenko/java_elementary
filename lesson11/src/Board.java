@@ -3,13 +3,18 @@ import java.util.Arrays;
 public class Board {
 
     char[][] board = new char[3][3];
-    char currentPlayer;
+    Player playerX;
+    Player playerO;
+    Player currentPlayer;
 
-    public Board() {
+    public Board(Player playerX, Player playerO) {
         for (int i = 0; i < 3; i++) {
             Arrays.fill(board[i], ' ');
         }
-        currentPlayer = 'X';
+
+        this.playerX = playerX;
+        this.playerO = playerO;
+        currentPlayer = playerX;
     }
 
     public void printBoard() {
@@ -35,17 +40,18 @@ public class Board {
         if (!isMoveValid(x, y))
             return false;
 
-        board[x][y] = currentPlayer;
+        board[x][y] = currentPlayer.getType();
         changeCurrentPlayer();
 
         return true;
     }
 
     private void changeCurrentPlayer() {
-        if (currentPlayer == 'X') {
-            currentPlayer = 'O';
+
+        if (currentPlayer.getType() == 'X') {
+            currentPlayer = playerO;
         } else {
-            currentPlayer = 'X';
+            currentPlayer = playerX;
         }
     }
 
@@ -56,7 +62,11 @@ public class Board {
         return true;
     }
 
-    public char calculateWinner() {
-        return 'X';
+    public Player calculateWinner() {
+        return currentPlayer;
+    }
+
+    public Player calculateLoser() {
+        return currentPlayer;
     }
 }
