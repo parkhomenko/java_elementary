@@ -1,4 +1,4 @@
-public class Player {
+public abstract class Player {
 
     private String lastname;
     private String firstname;
@@ -26,4 +26,6 @@ public class Player {
     public String toString() {
         return firstname + " " + lastname;
     }
+
+    public abstract String makeMove();
 }

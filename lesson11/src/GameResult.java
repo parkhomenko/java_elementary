@@ -11,4 +11,8 @@ public class GameResult {
         this.result = result;
         this.date = new Date();
     }
+
+    public String toString() {
+        return player.getType() + result;
+    }
 }

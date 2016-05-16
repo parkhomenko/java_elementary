@@ -8,4 +8,13 @@ public class Statistics {
     public void addResult(GameResult result) {
         results.add(result);
     }
+
+    @Override
+    public String toString() {
+        String statistics = "";
+        for (GameResult result : results) {
+            statistics += result;
+        }
+        return statistics;
+    }
 }

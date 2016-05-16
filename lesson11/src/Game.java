@@ -14,8 +14,8 @@ public class Game {
 
             System.out.println("Game started...");
 
-            Player playerX = new Player("Ivanov", "Ivan", "Petrovich", 25, 'X');
-            Player playerO = new Player("Petrov", "Petr", "Petrovich", 35, 'O');
+            Player playerX = new Human("Ivanov", "Ivan", "Petrovich", 25, 'X');
+            Player playerO = new AI("Petrov", "Petr", "Petrovich", 35, 'O');
 
             Board board = new Board(playerX, playerO);
             board.printBoard();
@@ -23,8 +23,8 @@ public class Game {
             while (!board.gameFinished()) {
                 System.out.println("Player " + board.currentPlayer + " moves...");
                 System.out.print("Enter your move: ");
-                String move = console.next();
-                if (!board.makeMove(move)) {
+                //String move = console.next();
+                if (!board.makeMove()) {
                     System.out.println("Input was incorrect. Repeat your move.");
                 }
 
