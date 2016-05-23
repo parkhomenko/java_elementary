@@ -7,7 +7,9 @@ public class TypesTest {
 
     public static void main(String[] args) {
 
-        Person person = new Engineer("John", "Smith", 25);
+        Person person = new Person("John", "Smith", 25);
+
+//        Class clazz = Class.forName("com.java.courses.type.Engineer");
 
         System.out.println(person.getClass().getName());
 
