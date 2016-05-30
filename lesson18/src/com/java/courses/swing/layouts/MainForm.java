@@ -1,9 +1,16 @@
 package com.java.courses.swing.layouts;
 
+import com.java.courses.swing.game.AI;
+import com.java.courses.swing.game.Board;
+import com.java.courses.swing.game.Human;
+import com.java.courses.swing.game.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainForm extends JFrame {
 
@@ -36,10 +43,22 @@ public class MainForm extends JFrame {
         textAreaSize.height = 100;
         textArea.setPreferredSize(textAreaSize);
 
-        //add(textArea, BorderLayout.WEST);
-        add(new GridForm(), BorderLayout.WEST);
+        Player playerX = new Human("Ivanov", "Ivan", "Petrovich", 25, 'X');
+        Player playerO = new AI("Petrov", "Petr", "Petrovich", 35, 'O');
+
+        Board board = new Board(playerX, playerO);
+
+        List<JButton> list = new ArrayList<>();
+        GridForm gridForm = new GridForm(board, list);
+        gridForm.setTextArea(textArea);
+
+        Toolbar toolbar = new Toolbar();
+        toolbar.setButtons(list);
+
+        add(textArea, BorderLayout.EAST);
+        add(gridForm, BorderLayout.WEST);
         add(button, BorderLayout.SOUTH);
-        add(new Toolbar(), BorderLayout.NORTH);
+        add(toolbar, BorderLayout.NORTH);
 
         button.addActionListener(new ActionListener() {
             @Override
