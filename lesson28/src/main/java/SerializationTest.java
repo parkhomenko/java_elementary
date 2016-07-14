@@ -3,8 +3,9 @@ import java.io.*;
 public class SerializationTest {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Dog dog = new Dog("Phluffy", 5);
-        //serializeDog(dog);
+        Owner owner = new Owner("Jack", 25, "London");
+        Dog dog = new Dog("Phluffy", 5, owner);
+        serializeDog(dog);
         Dog dogDeserialized = deserializeDog();
         System.out.println(dogDeserialized);
     }

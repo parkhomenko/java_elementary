@@ -1,25 +1,24 @@
 import java.io.Serializable;
 
-public class Dog implements Serializable {
+public class Owner implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     String name;
-    transient int age;
-    Owner owner;
+    String lastName;
+    int age;
 
-    public Dog(String name, int age, Owner owner) {
+    public Owner(String name, int age, String lastName) {
         this.name = name;
         this.age = age;
-        this.owner = owner;
+        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
-        return "Dog{" +
+        return "Owner{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", owner=" + owner +
                 '}';
     }
 }
